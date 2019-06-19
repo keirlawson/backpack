@@ -109,11 +109,25 @@ const BpkPhoneInput = (props: Props) => {
   }
 
   let phoneDisplayValue;
+
   if (countryCodeMask) {
     phoneDisplayValue = `+${dialingCodeText} ${value}`;
   } else {
     phoneDisplayValue = value;
   }
+
+  const phoneNumberOnChange = formFieldEvt => {
+    let { value: phoneValueWithCode } = formFieldEvt.target;
+
+    if (phoneValueWithCode.charAt(`+${dialingCodeText}`.length) !== ' ') {
+      const number = phoneValueWithCode.slice(`+${dialingCodeText}`.length);
+      phoneValueWithCode = `+${dialingCodeText} ${number}`;
+    }
+
+    /* eslint-disable no-param-reassign */
+    formFieldEvt.target.value = phoneValueWithCode.split(' ')[1] || '';
+    onChange(formFieldEvt);
+  };
 
   const phoneNumberOnChange = formFieldEvt => {
     let { value: phoneValueWithCode } = formFieldEvt.target;
