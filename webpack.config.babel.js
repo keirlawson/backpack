@@ -22,14 +22,10 @@ import path from 'path';
 import webpack from 'webpack';
 import WrapperPlugin from 'wrapper-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import StaticSiteGeneratorPlugin from 'static-site-generator-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import postCssPlugins from './scripts/webpack/postCssPlugins';
 import sassFunctions from './packages/bpk-mixins/sass-functions';
-import * as ROUTES from './packages/bpk-docs/src/constants/routes';
 import { blockComment as licenseHeader } from './packages/bpk-tokens/formatters/license-header';
-import redirects from './packages/bpk-docs/src/constants/redirect-routes';
 
 const {
   NODE_ENV,
@@ -40,13 +36,6 @@ const {
 } = process.env;
 const useCssModules = ENABLE_CSS_MODULES !== 'false';
 const isProduction = NODE_ENV === 'production';
-
-const staticSiteGeneratorConfig = {
-  paths: [
-    ...Object.keys(ROUTES).map(key => ROUTES[key]),
-    ...Object.keys(redirects),
-  ],
-};
 
 const sassOptions = {
   data: BPK_TOKENS
@@ -209,32 +198,6 @@ if (GOOGLE_MAPS_API_KEY) {
         GOOGLE_MAPS_API_KEY: JSON.stringify(GOOGLE_MAPS_API_KEY),
       },
     }),
-  );
-}
-
-if (isProduction) {
-  config.plugins.push(
-    new StaticSiteGeneratorPlugin({
-      entry: 'docs',
-      paths: staticSiteGeneratorConfig.paths,
-      locals: staticSiteGeneratorConfig,
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
-    }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        unused: true,
-        dead_code: true,
-        warnings: false,
-      },
-    }),
-    new CopyWebpackPlugin([
-      { from: 'packages/bpk-docs/src/README.md', to: 'README.md' },
-    ]),
   );
 }
 
