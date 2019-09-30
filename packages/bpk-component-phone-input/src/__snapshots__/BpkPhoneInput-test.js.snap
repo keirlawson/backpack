@@ -26,13 +26,11 @@ exports[`BpkPhoneInput should render correctly 1`] = `
     value="1"
   >
     <option
-      code="44"
       value="1"
     >
       +44
     </option>
     <option
-      code="55"
       value="2"
     >
       +55
@@ -83,13 +81,11 @@ exports[`BpkPhoneInput should render correctly with a "disabled" attribute 1`] =
     value="1"
   >
     <option
-      code="44"
       value="1"
     >
       +44
     </option>
     <option
-      code="55"
       value="2"
     >
       +55
@@ -140,13 +136,11 @@ exports[`BpkPhoneInput should render correctly with a "large" attribute 1`] = `
     value="1"
   >
     <option
-      code="44"
       value="1"
     >
       +44
     </option>
     <option
-      code="55"
       value="2"
     >
       +55
@@ -197,13 +191,11 @@ exports[`BpkPhoneInput should render correctly with a "valid" attribute 1`] = `
     value="1"
   >
     <option
-      code="44"
       value="1"
     >
       +44
     </option>
     <option
-      code="55"
       value="2"
     >
       +55
@@ -255,13 +247,11 @@ exports[`BpkPhoneInput should render correctly with a "wrapperProps" attribute 1
     value="1"
   >
     <option
-      code="44"
       value="1"
     >
       +44
     </option>
     <option
-      code="55"
       value="2"
     >
       +55
@@ -318,13 +308,11 @@ exports[`BpkPhoneInput should render correctly with a dialing code image attribu
       value="1"
     >
       <option
-        code="44"
         value="1"
       >
         +44
       </option>
       <option
-        code="55"
         value="2"
       >
         +55
@@ -372,13 +360,11 @@ exports[`BpkPhoneInput should render correctly with a the flag only attribute 1`
     value="1"
   >
     <option
-      code="44"
       value="1"
     >
       +44
     </option>
     <option
-      code="55"
       value="2"
     >
       +55

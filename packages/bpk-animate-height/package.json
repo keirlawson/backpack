@@ -16,8 +16,8 @@
     "prop-types": "^15.6.2"
   },
   "devDependencies": {
-    "bpk-component-button": "^2.6.2",
-    "bpk-tokens": "^28.0.1"
+    "bpk-component-button": "^3.0.0",
+    "bpk-tokens": "^29.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
